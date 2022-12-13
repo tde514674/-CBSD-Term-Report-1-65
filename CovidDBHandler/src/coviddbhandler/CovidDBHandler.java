@@ -34,8 +34,8 @@ public class CovidDBHandler {
         // TODO code application logic here
         int id = 1;
         URL api = new URL("https://covid19.ddc.moph.go.th/api/Cases/today-cases-all");
-        Covid c = insertCovidWeekData(api);
-        while(findCovidWeekById(id)!=null){
+        Covid c = insertCovidData(api);
+        while(findCovidById(id)!=null){
             id++;
         }
         c.setId(id);
@@ -55,7 +55,7 @@ public class CovidDBHandler {
         }
     }
     
-     public static Covid findCovidWeekById(Integer id) {
+     public static Covid findCovidById(Integer id) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("CovidDBHandlerPU");
         EntityManager em = emf.createEntityManager();
         Covid covid = em.find(Covid.class, id);
@@ -63,7 +63,7 @@ public class CovidDBHandler {
         return covid;
     }
      
-    public static Covid insertCovidWeekData(URL url) throws MalformedURLException, IOException, ParseException{
+    public static Covid insertCovidData(URL url) throws MalformedURLException, IOException, ParseException{
         String json = stream(url);
         //System.out.println(json);
         JSONArray array = new JSONArray(json);

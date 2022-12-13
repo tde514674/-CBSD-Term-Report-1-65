@@ -2,6 +2,7 @@
 package service;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -23,6 +24,21 @@ import javax.xml.ws.ResponseWrapper;
 })
 public interface CovidWebService {
 
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "FindCovidWeekDataById")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "FindCovidWeekDataById", targetNamespace = "http://myservice/", className = "service.FindCovidWeekDataById")
+    @ResponseWrapper(localName = "FindCovidWeekDataByIdResponse", targetNamespace = "http://myservice/", className = "service.FindCovidWeekDataByIdResponse")
+    @Action(input = "http://myservice/CovidWebService/FindCovidWeekDataByIdRequest", output = "http://myservice/CovidWebService/FindCovidWeekDataByIdResponse")
+    public String findCovidWeekDataById(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
 
     /**
      * 

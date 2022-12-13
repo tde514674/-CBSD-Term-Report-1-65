@@ -19,7 +19,14 @@ public class CovidSoapClient {
      */
     public static void main(String[] args) throws IOException_Exception, MalformedURLException_Exception {
         // TODO code application logic here
+        System.out.println("UPDATE COVID DATA LAST WEEK");
         System.out.println(updateCovidWeek());
+        System.out.println("----------------------------------------------");
+        
+        int id =1;
+        System.out.println("FIND BY ID");
+        System.out.println("ID = "+id);
+        System.out.println(findCovidWeekDataById(id));
     }
 
     private static String updateCovidWeek() throws IOException_Exception, MalformedURLException_Exception {
@@ -27,6 +34,14 @@ public class CovidSoapClient {
         service.CovidWebService port = service.getCovidWebServicePort();
         return port.updateCovidWeek();
     }
+
+    private static String findCovidWeekDataById(int id) {
+        service.CovidWebService_Service service = new service.CovidWebService_Service();
+        service.CovidWebService port = service.getCovidWebServicePort();
+        return port.findCovidWeekDataById(id);
+    }
+    
+    
 
     
     

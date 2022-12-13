@@ -25,8 +25,10 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _MalformedURLException_QNAME = new QName("http://myservice/", "MalformedURLException");
+    private final static QName _FindCovidWeekDataByIdResponse_QNAME = new QName("http://myservice/", "FindCovidWeekDataByIdResponse");
     private final static QName _IOException_QNAME = new QName("http://myservice/", "IOException");
     private final static QName _UpdateCovidWeekResponse_QNAME = new QName("http://myservice/", "UpdateCovidWeekResponse");
+    private final static QName _FindCovidWeekDataById_QNAME = new QName("http://myservice/", "FindCovidWeekDataById");
     private final static QName _UpdateCovidWeek_QNAME = new QName("http://myservice/", "UpdateCovidWeek");
 
     /**
@@ -42,6 +44,22 @@ public class ObjectFactory {
      */
     public MalformedURLException createMalformedURLException() {
         return new MalformedURLException();
+    }
+
+    /**
+     * Create an instance of {@link FindCovidWeekDataById }
+     * 
+     */
+    public FindCovidWeekDataById createFindCovidWeekDataById() {
+        return new FindCovidWeekDataById();
+    }
+
+    /**
+     * Create an instance of {@link FindCovidWeekDataByIdResponse }
+     * 
+     */
+    public FindCovidWeekDataByIdResponse createFindCovidWeekDataByIdResponse() {
+        return new FindCovidWeekDataByIdResponse();
     }
 
     /**
@@ -78,6 +96,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindCovidWeekDataByIdResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://myservice/", name = "FindCovidWeekDataByIdResponse")
+    public JAXBElement<FindCovidWeekDataByIdResponse> createFindCovidWeekDataByIdResponse(FindCovidWeekDataByIdResponse value) {
+        return new JAXBElement<FindCovidWeekDataByIdResponse>(_FindCovidWeekDataByIdResponse_QNAME, FindCovidWeekDataByIdResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link IOException }{@code >}}
      * 
      */
@@ -93,6 +120,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://myservice/", name = "UpdateCovidWeekResponse")
     public JAXBElement<UpdateCovidWeekResponse> createUpdateCovidWeekResponse(UpdateCovidWeekResponse value) {
         return new JAXBElement<UpdateCovidWeekResponse>(_UpdateCovidWeekResponse_QNAME, UpdateCovidWeekResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindCovidWeekDataById }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://myservice/", name = "FindCovidWeekDataById")
+    public JAXBElement<FindCovidWeekDataById> createFindCovidWeekDataById(FindCovidWeekDataById value) {
+        return new JAXBElement<FindCovidWeekDataById>(_FindCovidWeekDataById_QNAME, FindCovidWeekDataById.class, null, value);
     }
 
     /**
